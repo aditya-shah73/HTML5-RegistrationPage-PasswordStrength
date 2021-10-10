@@ -1,16 +1,19 @@
 function showPasswordRequirements() {
-  document.getElementById("password-requirement-text").style.display = "block";
+  document.getElementById("password-requirements").style.display = "block";
   document.getElementById("invalid-password").style.display = "none";
+  document.getElementById("password-strength").style.display = "none";
 }
 
 function hidePasswordRequirements() {
-  document.getElementById("password-requirement-text").style.display = "none";
+  document.getElementById("password-requirements").style.display = "none";
   document.getElementById("invalid-password").style.display = "block";
+  document.getElementById("password-strength").style.display = "none";
 }
 
 function verifyPassword() {
-    document.getElementById("password-requirement-text").style.display = "none";
-    document.getElementById("invalid-password").style.display = "none";
+  document.getElementById("password-requirements").style.display = "none";
+  document.getElementById("invalid-password").style.display = "none";
+  document.getElementById("password-strength").style.display = "block";
 }
 
 function register() {

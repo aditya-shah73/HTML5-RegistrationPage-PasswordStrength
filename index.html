@@ -29,11 +29,24 @@
                                     onfocus="showPasswordRequirements()" onblur="hidePasswordRequirements()"
                                     oninput="verifyPassword()" required>
                             </td>
-                            <td id="password-requirement-text" class="password-requirement-text">
+                            <td id="password-requirements" class="password-requirements">
                                 <p>Must be between 7-20 characters in length and include 4 aplha characters; 1 numeric
                                     character (0, 9) or 1 special character (!,-,_,.). The password is case sensitive
                                     and must not contain spaces or be the same as your User ID.</p>
                             </td>
+                            <td class="password-strength" id="password-strength">
+								<p>Password Strength</p>
+								<div class="password-strength-block">
+									<p id="upper-case">1 upper-case letter</p>
+									<p id="lower-case">1 lower-case letter</p>
+									<p id="number">1 number</p>
+									<p id="length">8 or more characters</p>
+									<p id="characters">Uses only these English characters: A-z, 0-9, @, -, _ and .</p>
+									<p id="user-id-match">Your password can not be the same as your User ID.</p><br>
+									<p><strong>Strength:</strong></p>
+                                    <progress id="strength" value="1" max="6"> 32% </progress>
+								</div>
+							</td>
                             <td class="invalid-password" id="invalid-password">Invalid Password</td>
                         </tr>
                     </table>
