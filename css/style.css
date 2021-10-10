@@ -30,11 +30,6 @@
   margin: 4px;
 }
 
-.invalid-password {
-  color: red;
-  display: none;
-}
-
 /* Password Strength Block */
 .password-strength {
   background-color: black;
