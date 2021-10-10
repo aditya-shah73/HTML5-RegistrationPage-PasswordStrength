@@ -1,15 +1,47 @@
-.header{
-	font-size: 40px;
-	padding-left: 1%;
-    padding-bottom: 0.5%;
-	border-bottom: 1px;
-	border-color: black;
-	border-bottom-style: solid;
+/* Registration Header */
+.header {
+  font-size: 40px;
+  padding-left: 1%;
+  padding-bottom: 0.5%;
+  border-bottom: 1px;
+  border-color: black;
+  border-bottom-style: solid;
 }
 
-.form-field{
-    width: 200px;
-    line-height: 50px;
-	text-align: right;
-	font-size: 18px;
+/* Registration Form Fields */
+.form-field {
+  width: 200px;
+  line-height: 50px;
+  text-align: right;
+  font-size: 18px;
 }
+
+/* Password Requirements Block */
+.password-requirement-text {
+  background-color: purple;
+  color: white;
+  display: none;
+  position: absolute;
+  margin-left: 1%;
+  width: 20%;
+}
+
+.password-requirement-text p {
+  margin: 4px;
+}
+
+.invalid-password {
+  color: red;
+  display: none;
+}
+
+/* Password Strength Block */
+.password-strength {
+  background-color: black;
+  color: white;
+  display: none;
+  z-index: 2;
+  position: absolute;
+  margin-left: 1%;
+}
+

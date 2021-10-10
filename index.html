@@ -21,7 +21,24 @@
             </tr>
             <tr>
                 <td class="form-field">Password</td>
-                <td>&nbsp;<input type="password" class="textfield" id="password" required></td>
+                <td>
+                    <table class="password-table">
+                        <tr>
+                            <td>
+                            <td>&nbsp;<input type="password" class="textfield" id="password"
+                                    onfocus="showPasswordRequirements()" onblur="hidePasswordRequirements()"
+                                    oninput="verifyPassword()" required>
+                            </td>
+                            <td id="password-requirement-text" class="password-requirement-text">
+                                <p>Must be between 7-20 characters in length and include 4 aplha characters; 1 numeric
+                                    character (0, 9) or 1 special character (!,-,_,.). The password is case sensitive
+                                    and must not contain spaces or be the same as your User ID.</p>
+                            </td>
+                            <td class="invalid-password" id="invalid-password">Invalid Password</td>
+                        </tr>
+                    </table>
+                </td>
+
             </tr>
             <tr>
                 <td class="form-field">Verify Password</td>
