@@ -14,6 +14,85 @@
         Registration
     </div>
     <form>
+        <table class="registration-fields">
+            <tr>
+                <td class="form-field">User ID</td>
+                <td>&nbsp;<input type="text" class="textfield" id="user-id" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Password</td>
+                <td>&nbsp;<input type="password" class="textfield" id="password" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Verify Password</td>
+                <td>&nbsp;<input type="password" class="textfield" id="verify-password" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Email Address</td>
+                <td>&nbsp;<input type="email" class="textfield" id="email" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Verify Email Address</td>
+                <td>&nbsp;<input type="email" class="textfield" id="verify-email" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Security Question </td>
+                <td>
+                    <select id="security-q1" required>
+                        <option value="">--</option>
+                        <option value="5">Sum of 2 + 3 = </option>
+                        <option value="300">Sum of 100 + 200 = </option>
+                        <option value="2300">23 x 100 = </option>
+                        <option value="Delhi">Capital of India?</option>
+                        <option value="Washington DC">Capital of USA?</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="form-field">Security Answer</td>
+                <td><input type="text" class="textfield" id="security-a1" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Security Question </td>
+                <td>
+                    <select id="security-q2" required>
+                        <option value="">--</option>
+                        <option value="5">Sum of 2 + 3 = </option>
+                        <option value="300">Sum of 100 + 200 = </option>
+                        <option value="2300">23 x 100 = </option>
+                        <option value="Delhi">Capital of India?</option>
+                        <option value="Washington DC">Capital of USA?</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="form-field">Security Answer</td>
+                <td><input type="text" class="textfield" id="security-a2" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Mobile</td>
+                <td>&nbsp;<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td>
+            </tr>
+            <tr>
+                <td class="form-field">Address</td>
+                <td><textarea id="address" name="address" rows="4" cols="70" required></textarea></td>
+            </tr>
+            <tr>
+                <td class="form-field"></td>
+                <td>Areas you may be interested in, please select one or more:</td>
+            </tr>
+            <tr>
+                <td class="form-field"></td>
+                <td><textarea id="areas" rows="6" name="areas" cols="70" class="textar" required></textarea></td>
+            </tr>
+            <tr>
+                <td class="form-field"></td>
+                <td>
+                    <input type="submit" class="register" value="Register" onclick="register()">
+                    <input type="button" class="cancel" value="Cancel" onclick="resetForm()">
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 

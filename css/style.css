@@ -6,3 +6,10 @@
 	border-color: black;
 	border-bottom-style: solid;
 }
+
+.form-field{
+    width: 200px;
+    line-height: 50px;
+	text-align: right;
+	font-size: 18px;
+}
