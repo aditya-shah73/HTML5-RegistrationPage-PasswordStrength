@@ -1,6 +1,9 @@
 function showPasswordRequirements() {
-  document.getElementById("password-requirements").style.display = "block";
-  document.getElementById("password-strength").style.display = "none";
+  if (document.getElementById("password").value === "") {
+    document.getElementById("password-requirements").style.display = "block";
+  } else {
+    document.getElementById("password-strength").style.display = "block";
+  }
 }
 
 function hidePasswordRequirements() {
@@ -12,80 +15,108 @@ function verifyPassword() {
   document.getElementById("password-requirements").style.display = "none";
   document.getElementById("password-strength").style.display = "block";
 
+  var passwordField = document.getElementById("password");
   var password = document.getElementById("password").value;
+  var userId = document.getElementById("user-id").value;
+  var progressBar = document.getElementById("strength");
 
-  var upperCase = false;
-  var lowerCase = false;
-  var number = false;
-  var length = false;
-  var characters = false;
-  var userIdMatch = false;
+  var upperCase = document.getElementById("upper-case");
+  var lowerCase = document.getElementById("lower-case");
+  var number = document.getElementById("number");
+  var length = document.getElementById("length");
+  var characters = document.getElementById("characters");
+  var userIdMatch = document.getElementById("user-id-match");
 
-  for (var i = 0; i < password.length; i++) {
-    var userID = document.getElementById("user-id").value;
-    var progressBar = document.getElementById("strength");
-    if (password.length >= 8 && password.length <= 20) {
-      length = true;
-    }
-    var char = password.charCodeAt(i);
-    if (userID.localeCompare(password) == 0) {
-      userIdMatch = true;
-    } else {
-      if (char >= 48 && char <= 57) {
-        number = true;
-      } else if (char >= 65 && char <= 90) {
-        upperCase = true;
-      } else if (char >= 97 && char <= 122) {
-        lowerCase = true;
-      } else {
-        characters = true;
-      }
-    }
-  }
-  if (userIdMatch || characters) {
-    if (userIdMatch) {
-      document.getElementById("user-id-match").innerHTML =
-        '<span style="color:red;">&#10006;</span>&nbsp;Your password can not be the same as your user ID.';
-      progressBar.value = 0;
-    }
-    if (characters) {
-      document.getElementById("characters").innerHTML =
-        '<span style="color:red;">&#10006;</span>&nbsp;Uses only these English characters: A-z, 0-9, @, -, _ and .';
-      progressBar.value = 0;
-    }
-    return false;
+  var lowerCaseLetters = /[a-z]/g;
+  if (password.match(lowerCaseLetters)) {
+    lowerCase.classList.remove("invalid");
+    lowerCase.classList.add("valid");
+    progressBar.value++;
   } else {
-    var progressBarValue = 0;
-    if (upperCase) {
-      document.getElementById("upper-case").innerHTML =
-        '<span style="color:green;">&#10004;</span>&nbsp;1 upper-case letter';
-      progressBar.value = progressBarValue += 1;
-    }
-    if (lowerCase) {
-      document.getElementById("lower-case").innerHTML =
-        '<span style="color:green;">&#10004;</span>&nbsp;1 lower-case letter';
-      progressBar.value = progressBarValue += 1;
-    }
-    if (number) {
-      document.getElementById("number").innerHTML =
-        '<span style="color:green;">&#10004;</span>&nbsp;1 number';
-      progressBar.value = progressBarValue += 1;
-    }
-    if (length) {
-      document.getElementById("length").innerHTML =
-        '<span style="color:green;">&#10004;</span>&nbsp;8 or more characters';
-      progressBar.value = progressBarValue += 1;
-    }
+    lowerCase.classList.remove("valid");
+    lowerCase.classList.add("invalid");
+    progressBar.value--;
+  }
+
+  var upperCaseLetters = /[A-Z]/g;
+  if (password.match(upperCaseLetters)) {
+    upperCase.classList.remove("invalid");
+    upperCase.classList.add("valid");
+    progressBar.value++;
+  } else {
+    upperCase.classList.remove("valid");
+    upperCase.classList.add("invalid");
+    progressBar.value--;
+  }
+
+  var numbers = /[0-9]/g;
+  if (password.match(numbers)) {
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+    progressBar.value++;
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+    progressBar.value--;
+  }
+
+  //   var validCharacters = !/[^0-9A-Za-z!@#$%&*()_\-+={[}\]|\:;"'<,>.?\/\\~`]/
+  //   if(password.match(validCharacters)){
+  //     characters.classList.remove("invalid");
+  //     characters.classList.add("valid");
+  //     progressBar.value++;
+  //   }
+  //   else {
+  //     characters.classList.remove("valid");
+  //     characters.classList.add("invalid");
+  //     progressBar.value--;
+  //   }
+
+  if (password.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+    progressBar.value++;
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+    progressBar.value--;
+  }
+
+  if (password === userId) {
+    userIdMatch.classList.remove("valid");
+    userIdMatch.classList.add("invalid");
+    progressBar.value--;
+  } else {
+    userIdMatch.classList.remove("invalid");
+    userIdMatch.classList.add("valid");
+    progressBar.value++;
   }
 }
 
+function validatePassword() {
+  var password = document.getElementById("password").value;
+  var verifyPassword = document.getElementById("verify-password").value;
+
+  if (password !== verifyPassword) {
+    document.getElementById("pwd-mismatch").style.display = "block";
+    return false;
+  }
+  return true;
+}
+
+function validateEmail() {
+  var email = document.getElementById("email").value;
+  var verifyEmail = document.getElementById("verify-email").value;
+
+  if (email !== verifyEmail) {
+    document.getElementById("email-mismatch").style.display = "block";
+    return false;
+  }
+  return true;
+}
+
 function register() {
-  if (
-    document.getElementById("email").value ===
-      document.getElementById("verify-email").value &&
-    document.getElementById("password").value ===
-      document.getElementById("verify-password").value
-  ) {
+  if (validateEmail() && validatePassword()) {
     localStorage.clear();
     localStorage.setItem("Username", document.getElementById("user-id").value);
     localStorage.setItem("Password", document.getElementById("password").value);

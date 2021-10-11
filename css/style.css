@@ -40,20 +40,58 @@
   margin-left: 1%;
 }
 
-.password-strength p{
-	padding: 5px;
-	margin: 0px;
+.password-strength p {
+  padding: 5px;
+  margin: 0px;
 }
 
-.password-strength-block{
-	margin: 2px;
-	background-color: white;
-	color: black;
-	padding-top: 5px;
-	padding-bottom: 5px;
+.password-strength-block {
+  margin: 2px;
+  background-color: white;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.password-strength-block p{
-	font-size: 12px;
-	line-height: 10px;
+.password-strength-block p {
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.pwd-mismatch {
+  color: red;
+  display: none;
+  margin-left: -390px;
+}
+
+.email-mismatch {
+  color: red;
+  display: none;
+  margin-left: -390px;
+}
+
+.valid:before {
+  left: -35px;
+  content: "+";
+  color: green;
+  padding-right: 5px;
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  left: -35px;
+  content: "x";
+  padding-right: 5px;
+}
+
+.register {
+  color: green;
+}
+
+.cancel {
+  color: red;
 }
