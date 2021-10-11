@@ -58,6 +58,7 @@
   line-height: 10px;
 }
 
+/* Mismatch fields */
 .pwd-mismatch {
   color: red;
   display: none;
@@ -77,7 +78,6 @@
   padding-right: 5px;
 }
 
-/* Add a red text color and an "x" when the requirements are wrong */
 .invalid {
   color: red;
 }
@@ -88,6 +88,7 @@
   padding-right: 5px;
 }
 
+/* Button styling */
 .register {
   color: green;
 }

@@ -1,7 +1,8 @@
 function showPasswordRequirements() {
   if (document.getElementById("password").value === "") {
     document.getElementById("password-requirements").style.display = "block";
-  } else {
+  } 
+  else {
     document.getElementById("password-strength").style.display = "block";
   }
 }
@@ -19,7 +20,7 @@ function verifyPassword() {
   var password = document.getElementById("password").value;
   var userId = document.getElementById("user-id").value;
   var progressBar = document.getElementById("strength");
-
+  progressBar.value = 0;
   var upperCase = document.getElementById("upper-case");
   var lowerCase = document.getElementById("lower-case");
   var number = document.getElementById("number");
@@ -32,10 +33,10 @@ function verifyPassword() {
     lowerCase.classList.remove("invalid");
     lowerCase.classList.add("valid");
     progressBar.value++;
-  } else {
+  } 
+  else {
     lowerCase.classList.remove("valid");
     lowerCase.classList.add("invalid");
-    progressBar.value--;
   }
 
   var upperCaseLetters = /[A-Z]/g;
@@ -43,10 +44,10 @@ function verifyPassword() {
     upperCase.classList.remove("invalid");
     upperCase.classList.add("valid");
     progressBar.value++;
-  } else {
+  } 
+  else {
     upperCase.classList.remove("valid");
     upperCase.classList.add("invalid");
-    progressBar.value--;
   }
 
   var numbers = /[0-9]/g;
@@ -54,39 +55,38 @@ function verifyPassword() {
     number.classList.remove("invalid");
     number.classList.add("valid");
     progressBar.value++;
-  } else {
+  } 
+  else {
     number.classList.remove("valid");
     number.classList.add("invalid");
-    progressBar.value--;
   }
 
-    var validCharacters = /^[ A-Za-z0-9_@./#&+-]*$/
-    if(password.match(validCharacters)){
-      characters.classList.remove("invalid");
-      characters.classList.add("valid");
-      progressBar.value++;
-    }
-    else {
-      characters.classList.remove("valid");
-      characters.classList.add("invalid");
-      progressBar.value--;
-    }
+  var validCharacters = /^[ A-Za-z0-9_@./#&+-]*$/;
+  if (password.match(validCharacters)) {
+    characters.classList.remove("invalid");
+    characters.classList.add("valid");
+    progressBar.value++;
+  } 
+  else {
+    characters.classList.remove("valid");
+    characters.classList.add("invalid");
+  }
 
   if (password.length >= 8) {
     length.classList.remove("invalid");
     length.classList.add("valid");
     progressBar.value++;
-  } else {
+  } 
+  else {
     length.classList.remove("valid");
     length.classList.add("invalid");
-    progressBar.value--;
   }
 
   if (password === userId) {
     userIdMatch.classList.remove("valid");
     userIdMatch.classList.add("invalid");
-    progressBar.value--;
-  } else {
+  } 
+  else {
     userIdMatch.classList.remove("invalid");
     userIdMatch.classList.add("valid");
     progressBar.value++;
@@ -120,25 +120,14 @@ function register() {
     localStorage.clear();
     localStorage.setItem("Username", document.getElementById("user-id").value);
     localStorage.setItem("Password", document.getElementById("password").value);
-    localStorage.setItem(
-      "Email Address",
-      document.getElementById("email").value
-    );
-    localStorage.setItem(
-      document.getElementById("security-q1").value,
-      document.getElementById("security-a1").value
-    );
-    localStorage.setItem(
-      document.getElementById("security-q2").value,
-      document.getElementById("security-a2").value
-    );
-    localStorage.setItem(
-      "Phone Number",
-      document.getElementById("phone").value
-    );
+    localStorage.setItem("Email Address", document.getElementById("email").value);
+    localStorage.setItem(document.getElementById("security-q1").value, document.getElementById("security-a1").value);
+    localStorage.setItem( document.getElementById("security-q2").value, document.getElementById("security-a2").value);
+    localStorage.setItem( "Phone Number", document.getElementById("phone").value);
     localStorage.setItem("Address", document.getElementById("address").value);
     localStorage.setItem("Areas", document.getElementById("areas").value);
-  } else {
+  } 
+  else {
     alert("Either email combination or password combination do not match!");
   }
 }
