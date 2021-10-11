@@ -60,17 +60,17 @@ function verifyPassword() {
     progressBar.value--;
   }
 
-  //   var validCharacters = !/[^0-9A-Za-z!@#$%&*()_\-+={[}\]|\:;"'<,>.?\/\\~`]/
-  //   if(password.match(validCharacters)){
-  //     characters.classList.remove("invalid");
-  //     characters.classList.add("valid");
-  //     progressBar.value++;
-  //   }
-  //   else {
-  //     characters.classList.remove("valid");
-  //     characters.classList.add("invalid");
-  //     progressBar.value--;
-  //   }
+    var validCharacters = /^[ A-Za-z0-9_@./#&+-]*$/
+    if(password.match(validCharacters)){
+      characters.classList.remove("invalid");
+      characters.classList.add("valid");
+      progressBar.value++;
+    }
+    else {
+      characters.classList.remove("valid");
+      characters.classList.add("invalid");
+      progressBar.value--;
+    }
 
   if (password.length >= 8) {
     length.classList.remove("invalid");
